@@ -1,8 +1,4 @@
 pipeline {
-    tools { 
-        maven 'maven' 
-        jdk 'JDK' 
-    }
     agent {
         node {
             label 'docker-io-ui'
@@ -24,51 +20,43 @@ pipeline {
                                         [string(credentialsId: jenkins_openshift_username, variable: 'OPENSHIFT_ID'),
                                         string(credentialsId: jenkins_openshift_password, variable: 'OPENSHIFT_PASS')])
                            {
-                                stage ('Checkout') {
-                                        echo 'Checking out SCM'
-                                        checkout scm
-
-                                        sh '''
-                                                echo "PATH = ${PATH}"
-                                                echo "M2_HOME = ${M2_HOME}"
-                                        '''
-                                }
-
-                                stage ('Java Build') {
-                                        
+                        
   
-                                             echo 'Build'
-                                             sh 'cd . && mvn clean install'
-                                }
-                                stage ('Docker Build') {
+                                stage ('Ansible Play') {
                                         retry() {
                                                 sh 'oc login https://openshiftnextgen.in.dst.ibm.com:8443 -u $OPENSHIFT_ID -p $OPENSHIFT_PASS --insecure-skip-tls-verify=true'
                                         }
-                                        echo 'creating project for build'
-                                        sh 'oc new-project liberty-redis-build || oc project liberty-redis-build'
-                                        echo 'Building and pushing image.'  
-                                        sh 'oc delete is liberty-redis --ignore-not-found=true && oc delete bc liberty-redis --ignore-not-found=true && sleep 5 && oc new-build --binary=true --name liberty-redis && oc start-build --follow --from-dir . liberty-redis'
-                                        echo 'Pushing image tagged :${env.BUILD_ID}.'
+                                        try {
+                                        sh 'oc delete project liberty-redis-build'
+                                    } catch (Exception e) {
+                                        echo 'project does not exist'
+                                    }
+                                    try {
+                                        sh 'oc delete project liberty-redis-dev'
+                                    } catch (Exception e) {
+                                        echo 'project does not exist'
+                                    }
+                                    try {
+                                        sh 'oc delete project liberty-redis-stage'
+                                    } catch (Exception e) {
+                                        echo 'project does not exist'
+                                    }
+                                    try {
+                                        sh 'oc delete project liberty-redis-prod'
+                                    } catch (Exception e) {
+                                        echo 'project does not exist'
+                                    }
+                                        sh 'sleep 60'
+                                        sh 'rm -rf ansible_playbook_templates_java'
+                                        echo 'Cloning repository'
+                                        sh 'git clone https://github.com/ashutosh-ibm/ansible_playbook_templates_java.git'
+                                        echo 'Install ansible galaxy'
+                                        sh 'ansible-galaxy install -r ansible_playbook_templates_java/requirements.yml --roles-path=ansible_playbook_templates_java/galaxy'
+                                        echo 'Applying Ansible playbooks for docker build and push'
+                                        sh 'ansible-playbook -i ansible_playbook_templates_java/.applier/ ansible_playbook_templates_java/galaxy/openshift-applier/playbooks/openshift-cluster-seed.yml'
                                 }
-                                
-                                stage ('Openshift deploy') {
-                                        echo 'creating project for deployment'
-                                        sh 'oc new-project liberty-redis-deploy || oc project liberty-redis-deploy'
-                                        sh 'oc policy add-role-to-user  system:image-puller system:serviceaccount:liberty-redis-deploy:default --namespace=liberty-redis-build'
-                                        echo 'deleting the previous deployment objects if exists'
-                                        sh 'oc delete dc liberty-redis --ignore-not-found=true'
-                                        sh 'oc delete is liberty-redis --ignore-not-found=true'
-                                        sh 'oc delete svc liberty-redis --ignore-not-found=true'
-                                        sh 'oc delete route liberty-redis --ignore-not-found=true'
-                                        sh 'sleep 5'
-                                        sh 'oc new-app liberty-redis-build/liberty-redis'
-                                        sh 'oc delete svc liberty-redis --ignore-not-found=true'
-                                        echo 'deleting the previous service if exists'
-                                        sh 'sleep 3'
-                                        sh 'oc expose dc liberty-redis --type=LoadBalancer'
-                                        sh 'oc expose service/liberty-redis'
-                                }
-                                        
+                         
+
                         }
                 }
             }
