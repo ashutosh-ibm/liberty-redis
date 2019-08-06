@@ -20,35 +20,22 @@ pipeline {
                                         [string(credentialsId: jenkins_openshift_username, variable: 'OPENSHIFT_ID'),
                                         string(credentialsId: jenkins_openshift_password, variable: 'OPENSHIFT_PASS')])
                            {
-                                stage ('Docker Build') {
+                        
+  
+                                stage ('Ansible Play') {
                                         retry() {
                                                 sh 'oc login https://openshiftnextgen.in.dst.ibm.com:8443 -u $OPENSHIFT_ID -p $OPENSHIFT_PASS --insecure-skip-tls-verify=true'
                                         }
-                                        echo 'creating project for build'
-                                        sh 'oc new-project redis-service-build || oc project redis-service-build'
-                                        echo 'Building and pushing image.'  
-                                        sh 'oc delete is redis-service --ignore-not-found=true && oc delete bc redis-service --ignore-not-found=true && sleep 5 && oc new-build --binary=true --name redis-service && oc start-build --follow --from-dir redis redis-service'
-                                        echo 'Pushing image tagged :${env.BUILD_ID}.'
+                                        sh 'rm -rf ansible_playbook_templates_java'
+                                        echo 'Cloning repository'
+                                        sh 'git clone https://github.com/ashutosh-ibm/ansible_playbook_templates_java.git'
+                                        echo 'Install ansible galaxy'
+                                        sh 'ansible-galaxy install -r ansible_playbook_templates_java/requirements.yml --roles-path=ansible_playbook_templates_java/galaxy'
+                                        echo 'Applying Ansible playbooks for docker build and push'
+                                        sh 'ansible-playbook -i ansible_playbook_templates_java/redis/.applier/ ansible_playbook_templates_java/galaxy/openshift-applier/playbooks/openshift-cluster-seed.yml'
                                 }
-                                
-                                stage ('Openshift deploy') {
-                                        echo 'creating project for deployment'
-                                        sh 'oc new-project redis-service-deploy || oc project redis-service-deploy'
-                                        sh 'oc policy add-role-to-user  system:image-puller system:serviceaccount:redis-service-deploy:default --namespace=redis-service-build'
-                                        echo 'deleting the previous deployment objects if exists'
-                                        sh 'oc delete dc redis-service --ignore-not-found=true'
-                                        sh 'oc delete is redis-service --ignore-not-found=true'
-                                        sh 'oc delete svc redis-service --ignore-not-found=true'
-                                        sh 'oc delete route redis-service --ignore-not-found=true'
-                                        sh 'sleep 5'
-                                        sh 'oc new-app redis-service-build/redis-service'
-                                        sh 'oc delete svc redis-service --ignore-not-found=true'
-                                        echo 'deleting the previous service if exists'
-                                        sh 'sleep 3'
-                                        sh 'oc expose dc redis-service --type=LoadBalancer'
-                                        sh 'oc expose service/redis-service'
-                                }
-                                        
+                         
+
                         }
                 }
             }
