@@ -26,6 +26,27 @@ pipeline {
                                         retry() {
                                                 sh 'oc login https://openshiftnextgen.in.dst.ibm.com:8443 -u $OPENSHIFT_ID -p $OPENSHIFT_PASS --insecure-skip-tls-verify=true'
                                         }
+                                        try {
+                                        sh 'oc delete project redis-service-build'
+                                    } catch (Exception e) {
+                                        echo 'project does not exist'
+                                    }
+                                    try {
+                                        sh 'oc delete project redis-service-dev'
+                                    } catch (Exception e) {
+                                        echo 'project does not exist'
+                                    }
+                                    try {
+                                        sh 'oc delete project redis-service-stage'
+                                    } catch (Exception e) {
+                                        echo 'project does not exist'
+                                    }
+                                    try {
+                                        sh 'oc delete project redis-service-prod'
+                                    } catch (Exception e) {
+                                        echo 'project does not exist'
+                                    }
+                                        sh 'sleep 60'
                                         sh 'rm -rf ansible_playbook_templates_java'
                                         echo 'Cloning repository'
                                         sh 'git clone https://github.com/ashutosh-ibm/ansible_playbook_templates_java.git'
