@@ -1,0 +1,94 @@
+********************************************************************************
+product = WebSphere Application Server 19.0.0.7 (wlp-1.0.30.cl190720190711-1115)
+wlp.install.dir = C:/Users/SandeepDharmavarapu/GetStartedJava/target/liberty/wlp/
+java.home = C:\Program Files\Java\jdk1.8.0_181\jre
+java.version = 1.8.0_181
+java.runtime = Java(TM) SE Runtime Environment (1.8.0_181-b13)
+os = Windows 10 (10.0; amd64) (en_IN)
+process = 12044@DESKTOP-CMGG4J3
+********************************************************************************
+[28/7/19 21:38:14:970 IST] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server defaultServer has been launched.
+[28/7/19 21:38:15:056 IST] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0100I: This product is licensed for development, and limited production use. The full license terms can be viewed here: https://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/license/base_ilan/ilan/19.0.0.7/lafiles/en.html
+[28/7/19 21:38:28:965 IST] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 25.337 seconds
+[28/7/19 21:38:29:028 IST] 0000001f com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
+[28/7/19 21:38:38:826 IST] 00000013 com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0007I: The security service is starting...
+[28/7/19 21:38:46:291 IST] 0000001b com.ibm.ws.ssl.config.WSKeyStore                             I CWPKI0819I: The default keystore is not created because a password is not configured on the <keyStore id="defaultKeyStore"/> element, and the 'keystore_password' environment variable is not set. 
+[28/7/19 21:38:46:775 IST] 00000013 ibm.ws.security.authentication.internal.jaas.JAASServiceImpl I CWWKS1123I: The collective authentication plugin with class name NullCollectiveAuthenticationPlugin has been activated. 
+[28/7/19 21:38:46:851 IST] 00000020 com.ibm.ws.security.token.ltpa.internal.LTPAKeyCreateTask    I CWWKS4105I: LTPA configuration is ready after 0.393 seconds.
+[28/7/19 21:38:54:322 IST] 00000013 com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Monitoring dropins for applications.
+[28/7/19 21:38:56:059 IST] 00000022 com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0219I: TCP Channel defaultHttpEndpoint has been started and is now listening for requests on host *  (IPv6) port 9080.
+[28/7/19 21:39:08:965 IST] 00000013 com.ibm.ws.cache.ServerCache                                 I DYNA1001I: WebSphere Dynamic Cache instance named baseCache initialized successfully.
+[28/7/19 21:39:08:965 IST] 00000013 com.ibm.ws.cache.ServerCache                                 I DYNA1071I: The cache provider default is being used.
+[28/7/19 21:39:08:965 IST] 00000013 com.ibm.ws.cache.CacheServiceImpl                            I DYNA1056I: Dynamic Cache (object cache) initialized successfully.
+[28/7/19 21:39:21:081 IST] 00000025 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application GetStartedJava.
+[28/7/19 21:39:21:082 IST] 00000025 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0135I: The GetStartedJava application is using the expanded directory at the C:\Users\SandeepDharmavarapu\GetStartedJava\target\GetStartedJava-1.0-SNAPSHOT location.
+[28/7/19 21:39:22:884 IST] 00000025 org.jboss.weld.Version                                       I WELD-000900: 2.4.8 (Final)
+[28/7/19 21:39:23:836 IST] 00000025 com.ibm.ws.session.WASSessionCore                            I SESN8501I: The session manager did not find a persistent storage location; HttpSession objects will be stored in the local application server's memory.
+[28/7/19 21:39:23:854 IST] 00000025 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: GetStartedJava-1.0-SNAPSHOT.
+[28/7/19 21:39:23:857 IST] 00000025 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module GetStartedJava-1.0-SNAPSHOT has been bound to default_host.
+[28/7/19 21:39:23:859 IST] 00000025 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://desktop-cmgg4j3:9080/GetStartedJava/
+[28/7/19 21:39:23:873 IST] 00000025 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application GetStartedJava started in 2.792 seconds.
+[28/7/19 21:39:24:026 IST] 00000021 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/GetStartedJava
+[28/7/19 21:39:24:044 IST] 00000021 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[28/7/19 21:39:24:052 IST] 0000001f com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [appSecurity-2.0, beanValidation-1.1, cdi-1.2, distributedMap-1.0, ejbLite-3.2, el-3.0, jaxrs-2.0, jaxrsClient-2.0, jdbc-4.1, jndi-1.0, jpa-2.1, jpaContainer-2.1, jsf-2.2, json-1.0, jsonp-1.0, jsp-2.3, managedBeans-1.0, servlet-3.1, ssl-1.0, webProfile-7.0, websocket-1.1].
+[28/7/19 21:39:24:056 IST] 0000001f com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 55.087 seconds.
+[28/7/19 21:39:24:057 IST] 0000001f com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 80.430 seconds.
+[28/7/19 21:39:24:677 IST] 00000021 com.ibm.ws.cache.CacheServiceImpl                            I DYNA1056I: Dynamic Cache (object cache) initialized successfully.
+[28/7/19 21:39:24:701 IST] 00000024 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at C:\Users\SandeepDharmavarapu\GetStartedJava\target\liberty\wlp\usr\servers\defaultServer\logs\state\plugin-cfg.xml.
+[28/7/19 21:39:40:848 IST] 00000020 SystemOut                                                    O Running locally. Looking for credentials in cloudant.properties
+[28/7/19 21:39:40:872 IST] 00000020 SystemOut                                                    O Connecting to Cloudant
+[28/7/19 21:39:40:873 IST] 00000020 SystemOut                                                    O Unable to connect to database
+[28/7/19 21:39:40:917 IST] 00000020 SystemOut                                                    O Running locally. Looking for credentials in redis.properties
+[28/7/19 21:39:40:923 IST] 00000020 SystemErr                                                    R java.net.URISyntaxException: Illegal character in scheme name at index 0: "redis://localhost:6379"
+[28/7/19 21:39:40:924 IST] 00000020 SystemErr                                                    R 	at java.net.URI$Parser.fail(URI.java:2848)
+[28/7/19 21:39:50:050 IST] 00000020 SystemErr                                                    R 	at java.net.URI$Parser.checkChars(URI.java:3021)
+[28/7/19 21:39:50:050 IST] 00000020 SystemErr                                                    R 	at java.net.URI$Parser.checkChar(URI.java:3031)
+[28/7/19 21:39:50:050 IST] 00000020 SystemErr                                                    R 	at java.net.URI$Parser.parse(URI.java:3047)
+[28/7/19 21:39:50:050 IST] 00000020 SystemErr                                                    R 	at java.net.URI.<init>(URI.java:588)
+[28/7/19 21:39:50:050 IST] 00000020 SystemErr                                                    R 	at wasdev.sample.store.JedisPoolFactory.getRedisURI(JedisPoolFactory.java:63)
+[28/7/19 21:39:50:050 IST] 00000020 SystemErr                                                    R 	at wasdev.sample.store.JedisPoolFactory.<clinit>(JedisPoolFactory.java:31)
+[28/7/19 21:39:50:055 IST] 00000020 SystemErr                                                    R 	at wasdev.sample.rest.VisitorAPI.<init>(VisitorAPI.java:47)
+[28/7/19 21:39:50:055 IST] 00000020 SystemErr                                                    R 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[28/7/19 21:39:50:055 IST] 00000020 SystemErr                                                    R 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+[28/7/19 21:39:50:055 IST] 00000020 SystemErr                                                    R 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[28/7/19 21:39:50:055 IST] 00000020 SystemErr                                                    R 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+[28/7/19 21:39:50:063 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.jaxrs20.server.LibertyJaxRsServerFactoryBean.createSingletonInstance(LibertyJaxRsServerFactoryBean.java:233)
+[28/7/19 21:39:50:065 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.jaxrs20.server.LibertyJaxRsServerFactoryBean.onApplicationInit(LibertyJaxRsServerFactoryBean.java:155)
+[28/7/19 21:39:50:067 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.jaxrs20.server.LibertyJaxRsServerFactoryBean.doInit(LibertyJaxRsServerFactoryBean.java:280)
+[28/7/19 21:39:50:068 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.jaxrs20.server.JaxRsWebEndpointImpl.init(JaxRsWebEndpointImpl.java:66)
+[28/7/19 21:39:50:072 IST] 00000020 SystemErr                                                    R 	at com.ibm.websphere.jaxrs.server.IBMRestServlet.init(IBMRestServlet.java:64)
+[28/7/19 21:39:50:087 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.webcontainer.servlet.ServletWrapper.init(ServletWrapper.java:291)
+[28/7/19 21:39:50:087 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:584)
+[28/7/19 21:39:50:089 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:426)
+[28/7/19 21:39:50:090 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1218)
+[28/7/19 21:39:50:092 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:4993)
+[28/7/19 21:39:50:099 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.handleRequest(DynamicVirtualHost.java:314)
+[28/7/19 21:39:50:100 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:1007)
+[28/7/19 21:39:50:103 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:279)
+[28/7/19 21:39:50:105 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink$TaskWrapper.run(HttpDispatcherLink.java:1136)
+[28/7/19 21:39:50:106 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.wrapHandlerAndExecute(HttpDispatcherLink.java:417)
+[28/7/19 21:39:50:107 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.ready(HttpDispatcherLink.java:376)
+[28/7/19 21:39:50:107 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:532)
+[28/7/19 21:39:50:107 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleNewRequest(HttpInboundLink.java:466)
+[28/7/19 21:39:50:117 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.processRequest(HttpInboundLink.java:331)
+[28/7/19 21:39:50:118 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.http.channel.internal.inbound.HttpICLReadCallback.complete(HttpICLReadCallback.java:70)
+[28/7/19 21:39:50:119 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.requestComplete(WorkQueueManager.java:503)
+[28/7/19 21:39:50:121 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:573)
+[28/7/19 21:39:50:123 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.workerRun(WorkQueueManager.java:954)
+[28/7/19 21:39:50:124 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.tcpchannel.internal.WorkQueueManager$Worker.run(WorkQueueManager.java:1043)
+[28/7/19 21:39:50:124 IST] 00000020 SystemErr                                                    R 	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:239)
+[28/7/19 21:39:50:124 IST] 00000020 SystemErr                                                    R 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+[28/7/19 21:39:50:127 IST] 00000020 SystemErr                                                    R 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+[28/7/19 21:39:50:127 IST] 00000020 SystemErr                                                    R 	at java.lang.Thread.run(Thread.java:748)
+[28/7/19 21:39:50:434 IST] 00000020 .ibm.ws.jaxrs.2.0.common:1.0.30.cl190720190711-1115(id=180)] I Setting the server's publish address to be /api/
+[28/7/19 21:39:50:928 IST] 00000020 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [GetStartedJava] [/GetStartedJava] [wasdev.sample.rest.VisitorAPI]: Initialization successful.
+[28/7/19 21:50:55:462 IST] 00000011 com.ibm.ws.kernel.launch.internal.ServerCommandListener      A CWWKE0055I: Server shutdown requested on Sunday, 28 July, 2019 at 9:50 PM. The server defaultServer is shutting down.
+[28/7/19 21:50:55:477 IST] 000001fe com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  A CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[28/7/19 21:50:55:497 IST] 00000101 com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint has stopped listening for requests on host *  (IPv6) port 9080.
+[28/7/19 21:50:55:505 IST] 00000101 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://desktop-cmgg4j3:9080/GetStartedJava/
+[28/7/19 21:50:56:515 IST] 000001fe com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  I CWWKE1101I: Server quiesce complete.
+[28/7/19 21:50:56:625 IST] 000000b3 com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [GetStartedJava] [/GetStartedJava] [wasdev.sample.rest.VisitorAPI]: Destroy successful.
+[28/7/19 21:50:56:654 IST] 000000b3 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application GetStartedJava has stopped successfully.
+[28/7/19 21:50:56:772 IST] 000001fe com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0009I: The security service has stopped.
+[28/7/19 21:50:56:838 IST] 000001fe ibm.ws.security.authentication.internal.jaas.JAASServiceImpl I CWWKS1124I: The collective authentication plugin with class name NullCollectiveAuthenticationPlugin has been deactivated. 
+[28/7/19 21:50:57:967 IST] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: The server defaultServer stopped after 12 minutes, 54.341 seconds.

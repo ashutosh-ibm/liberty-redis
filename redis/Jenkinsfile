@@ -1,0 +1,57 @@
+pipeline {
+    agent {
+        node {
+            label 'docker-io-ui'
+        }
+    }
+      environment {
+        jenkins_openshift_username="c8fdb02e-71cf-4907-963d-19203ee74bb0"
+        jenkins_openshift_password="68ec65fb-b20e-4f37-bf26-191bb85d6757"
+      }
+
+    options { skipDefaultCheckout() }
+
+    stages {
+        stage ('Initialize Application Migration') {
+            agent none
+            steps {
+                script {
+                        withCredentials(
+                                        [string(credentialsId: jenkins_openshift_username, variable: 'OPENSHIFT_ID'),
+                                        string(credentialsId: jenkins_openshift_password, variable: 'OPENSHIFT_PASS')])
+                           {
+                                stage ('Docker Build') {
+                                        retry() {
+                                                sh 'oc login https://openshiftnextgen.in.dst.ibm.com:8443 -u $OPENSHIFT_ID -p $OPENSHIFT_PASS --insecure-skip-tls-verify=true'
+                                        }
+                                        echo 'creating project for build'
+                                        sh 'oc new-project redis-service-build || oc project redis-service-build'
+                                        echo 'Building and pushing image.'  
+                                        sh 'oc delete is redis-service --ignore-not-found=true && oc delete bc redis-service --ignore-not-found=true && sleep 5 && oc new-build --binary=true --name redis-service && oc start-build --follow --from-dir redis redis-service'
+                                        echo 'Pushing image tagged :${env.BUILD_ID}.'
+                                }
+                                
+                                stage ('Openshift deploy') {
+                                        echo 'creating project for deployment'
+                                        sh 'oc new-project redis-service-deploy || oc project redis-service-deploy'
+                                        sh 'oc policy add-role-to-user  system:image-puller system:serviceaccount:redis-service-deploy:default --namespace=redis-service-build'
+                                        echo 'deleting the previous deployment objects if exists'
+                                        sh 'oc delete dc redis-service --ignore-not-found=true'
+                                        sh 'oc delete is redis-service --ignore-not-found=true'
+                                        sh 'oc delete svc redis-service --ignore-not-found=true'
+                                        sh 'oc delete route redis-service --ignore-not-found=true'
+                                        sh 'sleep 5'
+                                        sh 'oc new-app redis-service-build/redis-service'
+                                        sh 'oc delete svc redis-service --ignore-not-found=true'
+                                        echo 'deleting the previous service if exists'
+                                        sh 'sleep 3'
+                                        sh 'oc expose dc redis-service --type=LoadBalancer'
+                                        sh 'oc expose service/redis-service'
+                                }
+                                        
+                        }
+                }
+            }
+        }
+    }
+}

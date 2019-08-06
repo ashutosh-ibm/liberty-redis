@@ -1,0 +1,27 @@
+#Thu Jul 11 13:34:36 BST 2019
+lib/com.ibm.ws.org.jboss.jandex_1.0.30.jar=25daa986a24a63101e06b705a7ff6b62
+lib/com.ibm.ws.runtime.update_1.0.30.jar=9b7056672fdc6b56d8c963c9db823130
+lib/com.ibm.ws.jmx_1.0.30.jar=bbcc7d2f8722e04e87a5ff2650125e56
+lib/com.ibm.ws.org.eclipse.equinox.region_1.0.30.jar=f56c5a56be197b8214985fb62a6f9b40
+lib/com.ibm.ws.kernel.instrument.serialfilter_1.0.30.jar=17f80f2b13147cbe853123ac6de1a57c
+lib/com.ibm.ws.org.objectweb.asm_1.0.30.jar=ddf440feba214558ab9866e94f99c3ff
+lib/org.eclipse.osgi_3.15.0.jar=9c1e5d92e414bf39a50dd80bb2c607b4
+lib/com.ibm.ws.threading_1.1.30.jar=065f3f8d728a2b1ca56fb8d755afc905
+lib/com.ibm.ws.org.eclipse.equinox.coordinator_1.0.30.jar=955a4c03a0487d59a1c8d7bf1f0ae68a
+lib/com.ibm.ws.kernel.instrument.serialfilter.serverconfig_1.0.30.jar=fc41e618422f61719bf7bb5ab0bc73f6
+lib/com.ibm.ws.kernel.filemonitor_1.0.30.jar=f7c152c7b30c64aacb2e188a531064c4
+lib/com.ibm.ws.kernel.equinox.module_1.0.30.jar=ba78eac44076483146d811f0c7bc153a
+lib/com.ibm.ws.kernel.service_1.3.30.jar=8ae97433911cfe5d613456b75d2d14a5
+lib/platform/kernelCore-1.0.mf=691860280829c147dd0b783ab3771757
+lib/com.ibm.ws.crypto.passwordutil_1.0.30.jar=cc8abbfa0119472d65c03b7dcd74b5ff
+lib/com.ibm.ws.org.apache.aries.util_1.0.30.jar=41ea893a66576356cd441f79135c260f
+lib/com.ibm.ws.org.eclipse.equinox.metatype_1.0.30.jar=770b851b4e24948d3b2df8515983de05
+lib/com.ibm.ws.diagnostics_1.0.30.jar=56a878cfea7c712661c8e124b873ae85
+lib/com.ibm.ws.config.ext_1.0.30.jar=a918e27e35fd9d8a72a473174038a5e1
+lib/com.ibm.ws.config_1.0.30.jar=0c7a1181a6def1d9751f62455061c975
+lib/com.ibm.ws.org.apache.aries.jmx.api_1.0.30.jar=56abb439f9522cfb225c2687aa8a6ca1
+lib/com.ibm.ws.org.apache.aries.jmx.core.whiteboard_1.0.30.jar=d39687aba71402dd17e5d80d40791f67
+lib/com.ibm.ws.org.apache.felix.scr_1.0.30.jar=383b75fa25b2c7fb3867b6e2e60fcfb2
+lib/com.ibm.ws.kernel.metatype.helper_1.0.30.jar=7aed8767761d52b7032980bbf34b50e4
+lib/com.ibm.ws.event_1.0.30.jar=a4902b9c9607ff76db413ce2dbea17b5
+lib/com.ibm.ws.kernel.feature_1.0.30.jar=5cd55d238e2c2ef88519a070b8840dcb

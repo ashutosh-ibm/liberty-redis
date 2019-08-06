@@ -1,0 +1,19 @@
+PH12959 OAuth provider does not update settings in the consent cache
+PH13649 Invalid command line optional parameter (--hostName) with "collective help addReplica"
+PH13757 SCIM 1.0 returns HTTP 404 return code for user search
+PH13970 After updating to 19.0.0.4, SESN0008E errors started occurring.
+PH13994 Clickjacking vulnerability in Liberty Admin Center (CVE-2019-4285)
+OLGH5337 NullPointerException in BridgeUtils seperateIDAndRealm(...)
+OLGH6158 Pull in MyFaces 2.3.3 once it is released
+OLGH7539 Federated Repositories LoginBridge doesn't handle output property mappings that are multi-valued
+OLGH7552 JPAContainer incorrectly sets App Classloader as the CCL
+OLGH7612 Scrub error response for unwanted characters
+OLGH7670 IllegalArgumentException in MP Metrics from timing issue
+OLGH7854 WSLogManager static fields not properly initialized in jdk7
+OLGH7871 Fix NPE in WebAppSecurityCollaboratorImpl when invoking web resource using custom HTTP method
+OLGH7888 socialLogin needs to produce choice menu with one provider and localAuth enabled.
+OLGH7920 WASReqURL cookie path is not set when the context root of an application is set to root.
+OLGH7984 When Auditing function is enabled, it is potential that SRVE0777E error is logged.
+OLGH7986 Memory leak when stopping applications
+OLGH8034 NullPointerException in UniqueNameHelper.getValidDN
+OLGH8096 After updating to 19.0.0.4, SESN0008E errors started occurring. 
