@@ -17,7 +17,7 @@
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
           <!--<url>git@github.ibm.com:mounika-mutcherla/Tools_UI.git</url> -->
-          <url>git@github.ibm.com:ngt/liberty-redis.git</url>
+          <url>https://github.com/ashutosh-ibm/liberty-redis</url>
           <credentialsId>github.auth</credentialsId>
         </hudson.plugins.git.UserRemoteConfig>
       </userRemoteConfigs>
