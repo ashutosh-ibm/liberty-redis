@@ -7,7 +7,7 @@ pipeline {
       environment {
         jenkins_openshift_username="c8fdb02e-71cf-4907-963d-19203ee74bb0"
         jenkins_openshift_password="68ec65fb-b20e-4f37-bf26-191bb85d6757"
-        ssh_key="github.auth"
+        ssh_key="githubauth"
       }
 
     options { skipDefaultCheckout() }
