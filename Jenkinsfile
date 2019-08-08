@@ -19,7 +19,7 @@ pipeline {
                 script {
                         withCredentials(
                                         [string(credentialsId: jenkins_openshift_username, variable: 'OPENSHIFT_ID'),
-                                        string(credentialsId: jenkins_openshift_password, variable: 'OPENSHIFT_PASS')
+                                        string(credentialsId: jenkins_openshift_password, variable: 'OPENSHIFT_PASS'),
                                         string(credentialsId: ssh_key, variable: 'SSH_KEY')])
                            {
                         
