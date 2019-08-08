@@ -7,7 +7,6 @@ pipeline {
       environment {
         jenkins_openshift_username="c8fdb02e-71cf-4907-963d-19203ee74bb0"
         jenkins_openshift_password="68ec65fb-b20e-4f37-bf26-191bb85d6757"
-        ssh_key="githubauth"
       }
 
     options { skipDefaultCheckout() }
@@ -19,8 +18,7 @@ pipeline {
                 script {
                         withCredentials(
                                         [string(credentialsId: jenkins_openshift_username, variable: 'OPENSHIFT_ID'),
-                                        string(credentialsId: jenkins_openshift_password, variable: 'OPENSHIFT_PASS'),
-                                        string(credentialsId: ssh_key, variable: 'SSH_KEY')])
+                                        string(credentialsId: jenkins_openshift_password, variable: 'OPENSHIFT_PASS')])
                            {
                         
   
@@ -55,13 +53,7 @@ pipeline {
                                         echo 'Install ansible galaxy'
                                         sh 'ansible-galaxy install -r ansible_playbook_templates_java/requirements.yml --roles-path=ansible_playbook_templates_java/galaxy'
                                         echo 'Applying Ansible playbooks for docker build and push'
-                                        sh 'echo $SSH_KEY > id_rsa' 
-                                        
-                                        
                                         sh 'ansible-playbook -i ansible_playbook_templates_java/.applier/ ansible_playbook_templates_java/galaxy/openshift-applier/playbooks/openshift-cluster-seed.yml'
-                                        sh 'oc project liberty-redis-build'
-                                        sh 'oc create secret generic nextgen-ssh --from-file=ssh-privatekey=id_rsa --type=kubernetes.io/ssh-auth'
-                                        sh 'oc label secret nextgen-ssh credential.sync.jenkins.openshift.io=true'
                                 }
                          
 
