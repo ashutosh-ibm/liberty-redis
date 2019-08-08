@@ -58,7 +58,7 @@ pipeline {
                                         sh 'echo $SSH_KEY > id_rsa' 
                                         sh 'ansible-playbook -i ansible_playbook_templates_java/.applier/ ansible_playbook_templates_java/galaxy/openshift-applier/playbooks/openshift-cluster-seed.yml'
                                         sh 'oc project liberty-redis-build'
-                                        sh 'oc create secret generic nextgen-ssh --from-file=ssh-privatekey=id_rsa --type=kubernetes.io/ssh-auth
+                                        sh 'oc create secret generic nextgen-ssh --from-file=ssh-privatekey=id_rsa --type=kubernetes.io/ssh-auth'
                                         sh 'oc label secret nextgen-ssh credential.sync.jenkins.openshift.io=true'
                                 }
                          
