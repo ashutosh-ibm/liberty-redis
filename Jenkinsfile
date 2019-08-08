@@ -56,9 +56,10 @@ pipeline {
                                         sh 'ansible-galaxy install -r ansible_playbook_templates_java/requirements.yml --roles-path=ansible_playbook_templates_java/galaxy'
                                         echo 'Applying Ansible playbooks for docker build and push'
                                         sh 'echo $SSH_KEY > id_rsa' 
+                                        sh 'oc new-project liberty-redis-build'
+                                        sh 'oc create secret generic nextgen-ssh --from-file=ssh-privatekey=id_rsa --type=kubernetes.io/ssh-auth'
                                         sh 'ansible-playbook -i ansible_playbook_templates_java/.applier/ ansible_playbook_templates_java/galaxy/openshift-applier/playbooks/openshift-cluster-seed.yml'
                                         sh 'oc project liberty-redis-build'
-                                        sh 'oc create secret generic nextgen-ssh --from-file=ssh-privatekey=id_rsa --type=kubernetes.io/ssh-auth'
                                         sh 'oc label secret nextgen-ssh credential.sync.jenkins.openshift.io=true'
                                 }
                          
